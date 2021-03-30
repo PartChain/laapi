@@ -1,0 +1,314 @@
+/**
+ * @swagger
+ *
+ * definitions:
+ *
+ *   Asset:
+ *     type: object
+ *     properties:
+ *       componentSerialNumbers:
+ *         type: array
+ *         items:
+ *           type: string
+ *       creationDate:
+ *         type: string
+ *       manufacturer:
+ *         type: string
+ *       partNameManufacturer:
+ *         type: string
+ *       partNumberCustomer:
+ *         type: string
+ *       partNumberManufacturer:
+ *         type: string
+ *       productionCountryCodeManufacturer:
+ *         type: string
+ *       productionDateGmt:
+ *         type: string
+ *       serialNumberType:
+ *         type: string
+ *       manufacturerLine:
+ *         type: string
+ *       manufacturerPlant:
+ *         type: string
+ *       customFields:
+ *         type: object
+ *       qualityDocuments:
+ *         type: object
+ *       qualityStatus:
+ *         type: string
+ *       serialNumberCustomer:
+ *         type: string
+ *       serialNumberManufacturer:
+ *         type: string
+ *       status:
+ *         type: string
+ *
+ *   AssetListResponse:
+ *     type: object
+ *     properties:
+ *       data:
+ *         type: array
+ *         items:
+ *           $ref: '#/definitions/Asset'
+ *       status:
+ *         type: number
+ *       resultLength:
+ *         type: number
+ *   AssetResponse:
+ *     type: object
+ *     properties:
+ *       data:
+ *         type: object
+ *         $ref: '#/definitions/Asset'
+ *   AssetWithParent:
+ *     type: object
+ *     properties:
+ *       componentSerialNumbers:
+ *         type: array
+ *         items:
+ *           type: string
+ *       creationDate:
+ *         type: string
+ *       manufacturer:
+ *         type: string
+ *       partNameManufacturer:
+ *         type: string
+ *       partNumberCustomer:
+ *         type: string
+ *       partNumberManufacturer:
+ *         type: string
+ *       productionCountryCodeManufacturer:
+ *         type: string
+ *       productionDateGmt:
+ *         type: string
+ *       serialNumberType:
+ *         type: string
+ *       manufacturerLine:
+ *         type: string
+ *       manufacturerPlant:
+ *         type: string
+ *       customFields:
+ *         type: object
+ *       qualityDocuments:
+ *         type: object
+ *       qualityStatus:
+ *         type: string
+ *       serialNumberCustomer:
+ *         type: string
+ *       serialNumberManufacturer:
+ *         type: string
+ *       status:
+ *         type: string
+ *       parents:
+ *         type: array
+ *         items:
+ *           type: object
+ *
+ *   InitDatabaseResponse:
+ *     type: object
+ *     properties:
+ *       data:
+ *         type: string
+ *         example: initDatabase was successful
+ *
+ *   AssetWithParentResponse:
+ *     type: object
+ *     properties:
+ *       data:
+ *         type: object
+ *         $ref: '#/definitions/AssetWithParent'
+ *
+ *   Filter:
+ *     type: object
+ *     properties:
+ *       manufacturer:
+ *         type: object
+ *         properties:
+ *           value:
+ *            type: string
+ *       partNameNumber:
+ *         type: object
+ *         properties:
+ *           value:
+ *            type: string
+ *       productionCountryCode:
+ *         type: object
+ *         properties:
+ *           value:
+ *            type: string
+ *       productionDateFrom:
+ *         type: object
+ *         properties:
+ *           value:
+ *            type: string
+ *       productionDateTo:
+ *         type: object
+ *         properties:
+ *           value:
+ *            type: string
+ *       qualityStatus:
+ *         type: object
+ *         properties:
+ *           value:
+ *            type: string
+ *       serialNumberManufacturer:
+ *         type: object
+ *         properties:
+ *           value:
+ *            type: string
+ *       mspid:
+ *         type: object
+ *         properties:
+ *           value:
+ *            type: string
+ *   FilterSerialNumber:
+ *     type: object
+ *     properties:
+ *       serialNumberManufacturer:
+ *         type: string
+ *   FilterObject:
+ *     type: object
+ *     properties:
+ *       filter:
+ *         type: object
+ *         properties:
+ *           manufacturer:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           manufacturerLine:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           manufacturerPlant:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           serialNumberType:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *                enum: [SINGLE, BATCH]
+ *           partNameNumber:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           productionCountryCode:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           productionDateFrom:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           productionDateTo:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           qualityStatus:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           serialNumberManufacturer:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           mspid:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *           type:
+ *             type: object
+ *             properties:
+ *               value:
+ *                type: string
+ *                enum: [own, other]
+ *
+ *   Transaction:
+ *     type: object
+ *     properties:
+ *       description:
+ *         type: string
+ *       id:
+ *         type: string
+ *       propertyName:
+ *         type: string
+ *       propertyNewValue:
+ *         type: string
+ *       propertyOldValue:
+ *         type: string
+ *       serialNumberManufacturer:
+ *         type: string
+ *       status:
+ *         type: string
+ *       timestampChanged:
+ *         type: string
+ *       timestampCreated:
+ *         type: string
+ *       userId:
+ *         type: string
+ *
+ *   TransactionList:
+ *     type: array
+ *     items:
+ *       $ref: '#/definitions/Transaction'
+ *
+ *   TransactionInput:
+ *     type: object
+ *     properties:
+ *       serialNumberManufacturer:
+ *         type: string
+ *       propertyName:
+ *         type: string
+ *       propertyOldValue:
+ *         type: string
+ *       propertyNewValue:
+ *         type: string
+ *
+ *   TransactionListInput:
+ *     type: array
+ *     items:
+ *       $ref: '#/definitions/TransactionInput'
+ *
+ *   Tiles:
+ *     type: object
+ *     properties:
+ *       assetsCount:
+ *         type: integer
+ *       otherAssetsCount:
+ *         type: integer
+ *       transactionsCount:
+ *         type: integer
+ *       ownAssetsCount:
+ *         type: integer
+ *
+ *   KpiStatsResponse:
+ *     type: object
+ *     properties:
+ *       data:
+ *         type: object
+ *         properties:
+ *           assetsCount:
+ *             type: integer
+ *           ownAssetsCount:
+ *             type: integer
+ *           otherAssetsCount:
+ *             type: integer
+ *           assetsPerDay:
+ *             type: object
+ *           qualityStatusRatio:
+ *             type: object
+ *           AssetsCountPerCountryAndSupplier:
+ *             type: object
+ */
